@@ -1,0 +1,18 @@
+version: '3.5'
+services:
+  botpress:
+    build:
+      context: ./
+    container_name: botpress_hitlnext_bug
+    ports:
+      - 3000:3000
+    privileged: true
+    tty: true
+    volumes: 
+     - ./data:/botpress/data:delegated
+    environment:
+      DEBUG_COLORS: "true"
+      TERM: xterm-256color
+      COLORTERM: truecolor
+      FORCE_COLOR: "true"
+      COLUMNS: ${COLUMNS:-80}
